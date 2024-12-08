@@ -1,7 +1,6 @@
+from ompr.runner import RunningWorker, OMPRunner
 import random
 import time
-
-from ompr.runner import RunningWorker, OMPRunner
 
 
 class Processor(RunningWorker):

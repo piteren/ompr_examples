@@ -1,7 +1,6 @@
+from ompr.simple import simple_process
 import random
 import time
-
-from ompr.simple import simple_process
 
 
 # function processing tasks
