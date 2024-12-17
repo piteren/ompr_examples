@@ -38,4 +38,5 @@ if __name__ == "__main__":
         num_workers=        n_devices_cpu,
         report_delay=       2,
         loglevel=           20)
-    print(len(res), type(res[0]), res[0].shape)
+
+    print(f'{len(res)}x {type(res[0])} {res[0].shape}')

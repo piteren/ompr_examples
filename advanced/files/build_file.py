@@ -6,13 +6,18 @@ import sys
 from typing import Optional
 
 
-def build(file_ix:int, device:str, save_dir:Optional[str]=None):
-    arr = np.random.rand(1000,1000)
-    for _ in range(100):
-        arr += np.random.rand(1000,1000)
+def build(
+        file_ix: int,
+        device: str, # this is the way to pass GPU device
+        save_dir: Optional[str]=    None,
+        dim: int=                   2000):
+    arr = np.random.rand(dim,dim)
     if save_dir:
         prep_folder(save_dir)
-        w_pickle(arr, f'{save_dir}/{file_ix:03}.arr')
+        w_pickle(
+            obj=        arr,
+            file_path=  f'{save_dir}/{file_ix:03}_{device}.arr',
+            compressed= True)
     return arr
 
 
@@ -21,7 +26,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--file_ix", type=int, help="file index")
     parser.add_argument("--device", type=str, help="device")
-    parser.add_argument("--save_dir", type=str, help="optionalsave directory")
+    parser.add_argument("--save_dir", type=str, help="optional save directory")
     args = parser.parse_args()
     arr = build(**vars(args))
     sys.stdout.buffer.write(pickle.dumps(arr))

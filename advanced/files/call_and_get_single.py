@@ -7,7 +7,11 @@ if __name__ == "__main__":
 
     logger = get_pylogger(name='builder')
 
-    kwargs = {'file_ix':0, 'device':'cpu', 'save_dir':None}
+    kwargs = {
+        'file_ix':  0,
+        'device':   'cpu',
+        'save_dir': '_out',
+    }
 
     args = ["python3", "advanced/files/build_file.py"]
     parameters = []
@@ -20,4 +24,4 @@ if __name__ == "__main__":
     )
 
     arr = pickle.loads(res.stdout)
-    print(arr)
+    print(type(arr), arr.shape)
