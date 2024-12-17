@@ -36,6 +36,7 @@ if __name__ == "__main__":
         tasks=              tasks,
         function=           call_build,
         num_workers=        n_devices_cpu,
+        rww_init_sync=      True,
         report_delay=       2,
         loglevel=           20)
 
